@@ -1,8 +1,8 @@
-C++ 2D Simple Game Server
+C++ 3D Simple Game Server Project
 - PacketGenerator was Made C#
 
 Use External Library
-- Client : SDL2
+- Client : Opengl
 - Server : Protobuf
 
 - DB : MSSQL
