@@ -45,5 +45,22 @@ ExternalProject_Add(
 set(DEP_LIST ${DEP_LIST} dep-glfw)
 set(DEP_LIBS ${DEP_LIBS} glfw3)
 
-# DEP_LIST -> dep-spdlog dep-glfw
-# DEP_LIBS -> spdlogd(Debug) glfw3
+# glad
+ExternalProject_Add(
+    dep-glad
+    GIT_REPOSITORY "https://github.com/Dav1dde/glad"
+    GIT_TAG "v0.1.36"
+    GIT_SHALLOW 1
+    UPDATE_COMMAND ""
+    PATCH_COMMAND ""
+    TEST_COMMAND ""
+    CMAKE_ARGS
+        -DCMAKE_INSTALL_PREFIX=${DEP_EXTERNAL_DIR}
+        -DGLAD_INSTALL=ON
+    )
+
+set(DEP_LIST ${DEP_LIST} dep-glad)
+set(DEP_LIBS ${DEP_LIBS} glad)
+
+# DEP_LIST -> dep-spdlog dep-glfw dep-glad
+# DEP_LIBS -> spdlogd(Debug) glfw3 glad

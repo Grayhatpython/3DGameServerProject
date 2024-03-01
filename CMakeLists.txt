@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.14)
 
-set(PROJECT_NAME OpenglProject)
+set(PROJECT_NAME GameClient)
 set(CMAKE_CXX_STANDARD 17)
 
 # 실행 파일은 빌드 디렉토리 안에 bin 폴더에 출력.
@@ -15,6 +15,8 @@ project(${PROJECT_NAME})
 set(CMAKE_VERBOSE_MAKEFILE true)
 
 add_executable(${PROJECT_NAME} src/main.cpp)
+
+target_precompile_headers(${PROJECT_NAME} PUBLIC src/pch.h)
 
 include(Dependency.cmake)
 
@@ -40,3 +42,7 @@ target_compile_definitions(${PROJECT_NAME} PUBLIC
 # Dependency들이 먼저 build 될 수 있게 관계 설정
 add_dependencies(${PROJECT_NAME} ${DEP_LIST})
 
+
+# CMake Config -> Build
+# cmake -Bbuild . -DCMAKE_BUILD_TYPE=Debug|Release
+# cmake --build build
