@@ -14,7 +14,13 @@ project(${PROJECT_NAME})
 
 set(CMAKE_VERBOSE_MAKEFILE true)
 
-add_executable(${PROJECT_NAME} src/main.cpp)
+add_executable(${PROJECT_NAME}   
+    src/main.cpp
+    src/shader.cpp src/shader.h
+    src/Program.cpp src/Program.h
+    src/Context.cpp src/Context.h
+    src/Core.cpp src/Core.h
+)
 
 target_precompile_headers(${PROJECT_NAME} PUBLIC src/pch.h)
 
